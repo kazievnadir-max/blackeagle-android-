@@ -8,6 +8,8 @@ This is a source export, not an accepted F-Droid submission.
 - Android client test project: 32 passed, 0 failed (Release).
 - English and Russian Fastlane descriptions are present.
 - Original client code has an MIT license. Third-party licenses are separate.
+- The project owner confirmed MIT distribution rights for both eagle images
+  on 2026-10-24; see `docs/ARTWORK-LICENSE.md`.
 - Release ARM64 APK builds with `-r android-arm64`: version 0.5.1/code 11,
   min SDK 30, target SDK 36. ZIP alignment check with `zipalign -P 16` passed.
 - Repeated after `dotnet clean` using build-release.sh: 0 warnings, 0 errors.
@@ -34,7 +36,7 @@ No device was connected via ADB for runtime verification.
 ## Publication checklist
 
 - Public repository: https://github.com/kazievnadir-max/blackeagle-android-
-- Confirm redistribution rights for artwork and audit transitive dependencies.
+- Complete the transitive dependency and embedded font/native license review.
 - Validate runtime behaviour on a device and the x86_64 release build.
 - Establish a source-build strategy for .NET/NuGet native dependencies acceptable
   to F-Droid; a successful local APK build alone does not establish compliance.

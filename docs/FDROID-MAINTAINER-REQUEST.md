@@ -21,8 +21,9 @@ The native AWG wrapper is built from Go module sources with Android NDK r28c.
 The .NET Android SDK/workload, managed assemblies, AndroidX bindings, SkiaSharp
 and HarfBuzz native assets currently come from NuGet/SDK packages. An inventory
 of package-declared licenses is in `docs/DEPENDENCIES.md`; this does not establish
-source provenance for every embedded component. Artwork permission confirmation,
-embedded font/native notice review and F-Droid build-server validation remain open.
+source provenance for every embedded component. The project owner has confirmed
+MIT distribution rights for both eagle images (see `docs/ARTWORK-LICENSE.md`).
+Embedded font/native notice review and F-Droid build-server validation remain open.
 
 Before proposing an fdroiddata build, could maintainers advise which .NET and
 NuGet dependencies can be accepted as trusted prebuilt components, and which

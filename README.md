@@ -36,8 +36,9 @@ an outdated system certificate store.
 
 Original client source in this repository is licensed under MIT; see LICENSE.
 Third-party dependencies retain their own licenses. Their notices must be
-preserved. Licensing/provenance of bundled artwork must be confirmed before
-publication; the source license does not override third-party rights.
+preserved. The project owner confirmed MIT distribution rights for both eagle
+images; see [artwork licensing](docs/ARTWORK-LICENSE.md). This does not relicense
+third-party fonts or libraries.
 
 ## F-Droid preparation status
 
