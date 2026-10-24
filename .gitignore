@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/artifacts/
+*.user
+.DS_Store
+*.apk
+*.aab
+*.keystore
+*.jks
+*.p12
+.env
+.env.*
+**/secrets/

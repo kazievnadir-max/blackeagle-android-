@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.MAIN" />
+      <category android:name="android.intent.category.LAUNCHER" />
+    </intent>
+  </queries>
+  <application android:allowBackup="false" android:usesCleartextTraffic="false"
+               android:label="@string/app_name" android:icon="@drawable/eagle_head_black">
+    <service android:name="com.blackeaglevpn.client.VpnTileService"
+             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+             android:exported="true" android:label="@string/app_name" android:icon="@drawable/eagle_head_black">
+      <intent-filter>
+        <action android:name="android.service.quicksettings.action.QS_TILE" />
+      </intent-filter>
+      <meta-data android:name="android.service.quicksettings.TOGGLEABLE_TILE" android:value="true" />
+    </service>
+    <service android:name="com.blackeaglevpn.client.VpnService"
+             android:permission="android.permission.BIND_VPN_SERVICE"
+             android:exported="false" android:foregroundServiceType="specialUse">
+      <intent-filter>
+        <action android:name="android.net.VpnService" />
+      </intent-filter>
+      <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User initiated AmneziaWG VPN connection" />
+    </service>
+  </application>
+</manifest>
