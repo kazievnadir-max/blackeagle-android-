@@ -13,19 +13,24 @@ It does not include the control plane, bot, node deployments or server secrets.
 
 ## Build
 
-Install .NET SDK 10 with the Android workload, Android SDK/API 36, JDK 17,
-Android NDK 28.2.13676358 and Go 1.25 or later. Set ANDROID_SDK_ROOT,
+Install .NET SDK 10.0.401 with Android workload 36.1.2, Android SDK/API 36,
+build-tools 36.0.0, OpenJDK 17, Android NDK 28.2.13676358 and Go 1.27.1.
+Set ANDROID_SDK_ROOT,
 ANDROID_NDK_HOME and JAVA_HOME to their local installation paths.
 
 ```sh
-bash clients/android/deploy/build-native.sh
-dotnet build clients/android/src/BlackEagle.Android/BlackEagle.Android.csproj \
-  -c Release -p:AndroidSdkDirectory="$ANDROID_SDK_ROOT" \
-  -p:JavaSdkDirectory="$JAVA_HOME"
+bash clients/android/deploy/build-release.sh
 ```
 
 The native build script builds the AWG shared libraries and copies their upstream
 license into the APK assets. Never commit signing keys or credentials.
+
+The default release target is ARM64. The unsigned APK is located at
+`clients/android/src/BlackEagle.Android/bin/Release/net10.0-android/android-arm64/com.blackeaglevpn.client.apk`.
+This is not a production-signed release. Set `ANDROID_RUNTIME=android-x64` to
+build for x86_64 (not yet validated). `DOTNET_CMD` and `GO_CMD` can override
+tool executable paths. Do not disable NuGet signature checks to work around
+an outdated system certificate store.
 
 ## Licensing
 
@@ -38,8 +43,8 @@ publication; the source license does not override third-party rights.
 
 Not submitted or accepted into the main F-Droid repository yet. Outstanding:
 
-See [FDROID-STATUS.md](FDROID-STATUS.md) for verified checks and the current
-Release APK build blocker. The commands above are not yet a validated F-Droid
+See [FDROID-STATUS.md](FDROID-STATUS.md) for verified checks and remaining
+inclusion blockers. The commands above are not yet a validated F-Droid
 build recipe.
 
 - Validate a clean build and all dependency licenses/provenance.
