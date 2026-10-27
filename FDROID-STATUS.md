@@ -11,7 +11,9 @@ This is a source export, not an accepted F-Droid submission.
 - The project owner confirmed MIT distribution rights for both eagle images
   on 2026-10-24; see `docs/ARTWORK-LICENSE.md`.
 - Release ARM64 APK builds with `-r android-arm64`: version 0.5.1/code 11,
-  min SDK 30, target SDK 36. ZIP alignment check with `zipalign -P 16` passed.
+  min SDK 30, target SDK 36. ZIP alignment check with `zipalign -P 16` passes
+  for the Signed.apk output. The intermediate unsigned APK is unaligned and
+  must be aligned before signing; this was rechecked on 2026-10-27.
 - Repeated after `dotnet clean` using build-release.sh: 0 warnings, 0 errors.
 - 66 restored NuGet packages declare MIT or MIT AND Apache-2.0. See
   `docs/DEPENDENCIES.md`; this is not a complete embedded-component license audit.
@@ -31,7 +33,8 @@ for the build. No system certificate files were modified.
 Toolchain: SDK 10.0.401, Android workload 36.1.2, API/build-tools 36/36.0.0,
 OpenJDK 17.0.20.1, NDK r28c, Go 1.27.1. SDK version is pinned in global.json.
 This local build does not prove reproducibility or F-Droid build-server compliance.
-No device was connected via ADB for runtime verification.
+On 2026-10-27, the ARM64 Release Signed.apk successfully installed as an update
+on Samsung SM-S911B running Android 16. VPN connectivity testing is still pending.
 
 ## Publication checklist
 
@@ -47,5 +50,9 @@ No device was connected via ADB for runtime verification.
 
 `docs/FDROID-MAINTAINER-REQUEST.md` contains a draft packaging-policy enquiry.
 No GitLab connector is available in this session; the request has not been sent.
+On 2026-10-27 plugin discovery found no GitLab plugin, and no browser-control
+execution tool was available. The GitLab submission page requires sign-in.
+`docs/FDROID-SUBMISSION.md` contains the prepared packaging request, including
+open checks; it has not been submitted and is not a completed fdroiddata recipe.
 
 Official guide: https://f-droid.org/docs/Submitting_to_F-Droid_Quick_Start_Guide/
