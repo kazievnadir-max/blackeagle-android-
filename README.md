@@ -32,6 +32,13 @@ build for x86_64 (not yet validated). `DOTNET_CMD` and `GO_CMD` can override
 tool executable paths. Do not disable NuGet signature checks to work around
 an outdated system certificate store.
 
+For version 0.5.1, a separate ARM64 APK has been signed using the project's
+permanent RSA-4096 key. Its signing certificate fingerprint and checksum are
+recorded in [release notes](docs/RELEASE-0.5.1.md). The local signing key and
+password are stored outside this repository. The build script's automatic
+`Signed.apk` output still uses SDK signing defaults; it is not the permanently
+signed distribution artifact.
+
 ## Licensing
 
 Original client source in this repository is licensed under MIT; see LICENSE.
